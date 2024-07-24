@@ -8,12 +8,8 @@ const ProductList = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            try{ 
             const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/products`);
             setProducts(data);
-        }catch (error) {
-            console.error(error.response ? error.response.data : error.message);
-          }
         }
 
         fetchProducts();
