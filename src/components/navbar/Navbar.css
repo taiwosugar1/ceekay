@@ -1,0 +1,27 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    width: 100%;
+}
+.navbar header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60px;
+    width: 100%;
+    background-color: aqua;
+}
+.navbar header ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar header ul li{
+    list-style: none;
+    text-decoration: none;
+    margin: 10px;
+    padding: 5px;
+    color: blue;
+}

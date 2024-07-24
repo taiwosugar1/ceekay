@@ -1,0 +1,19 @@
+.single-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  .single-product h1 {
+    margin-bottom: 1rem;
+  }
+  
+  .single-product p {
+    margin: 0.5rem 0;
+  }  
