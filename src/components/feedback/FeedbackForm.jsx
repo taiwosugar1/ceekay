@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { submitFeedback } from '../api/api';
+import { submitFeedback } from '../../api/api';
+import './FeedbackForm.css'; // Import the CSS file
 
 const FeedbackForm = () => {
   const [feedback, setFeedback] = useState('');
@@ -15,7 +16,7 @@ const FeedbackForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="feedback-form" onSubmit={handleSubmit}>
       <textarea
         name="feedback"
         placeholder="Enter your feedback"

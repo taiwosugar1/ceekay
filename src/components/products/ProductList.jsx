@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getProducts } from '../api/api';
+import { getProducts } from '../../api/api';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -11,9 +11,8 @@ const ProductList = () => {
     };
     fetchProductList();
   }, []);
-
   return (
-    <div>
+    <div className="product-list">
       <h1>Product List</h1>
       {products.map(product => (
         <div key={product._id}>

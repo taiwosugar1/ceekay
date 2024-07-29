@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
 import { loginAdmin } from '../../api/api';
 import { useAuth } from '../../context/AuthContext';
+import './AdminLoginPage.css';
 
 const AdminLoginPage = () => {
   const [email, setEmail] = useState('');
@@ -14,17 +13,17 @@ const AdminLoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const data = await loginAdmin(email, password);
+      const data = await loginAdmin({ email, password });
       setUser(data);
       localStorage.setItem('token', data.token);
-      navigate('/admin'); // Use navigate instead of history.push
+      navigate('/admin');
     } catch (error) {
       alert('Login failed');
     }
   };
 
   return (
-    <div>
+    <div className='admin-login-container'>
       <h1>Admin Login</h1>
       <form onSubmit={handleLogin}>
         <input

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes, useParams, useResolvedPath } from 'react-router-dom';
-import ProductList from '../components/ProductList';
-import ProductDetail from '../components/ProductDetail';
+import ProductList from '../components/products/ProductList';
+import ProductDetail from '../components/products/ProductDetail';
 
 const ProductPage = () => {
   // Get the resolved path
@@ -14,7 +14,7 @@ const ProductPage = () => {
       <h1>Products</h1>
       <Routes>
         <Route path={pathname} element={<ProductList />} />
-        <Route path={`${pathname}/:id`} element={<ProductDetail />} />
+        <Route path={`pathname/${id}`} element={<ProductDetail />} />
       </Routes>
     </div>
   );

@@ -7,21 +7,21 @@ import "./UserLoginPage.css"
 const UserLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setUser } = useAuth();
-  const navigate = useNavigate(); // Use useNavigate instead of useHistory
+  const { login } = useAuth(); // Ensure login method is used
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const data = await loginUser(email, password);
-      setUser(data);
-      localStorage.setItem('token', data.token);
-      navigate('/'); // Use navigate instead of history.push
+      const data = await loginUser({ email, password });
+      login(data.token);
+      localStorage.setItem('authToken', data.token);
+      navigate('/'); // Navigate to home page
     } catch (error) {
       alert('Login failed');
+      console.error(error);
     }
   };
-
   return (
     <div className='login-container'>
       <h1>User Login</h1>
@@ -40,7 +40,7 @@ const UserLoginPage = () => {
         />
         <button type="submit">Login</button>
       </form>
-      <h3>Dont have an account <Link to={'/register'}>Register</Link></h3>
+      <h3>Don't have an account? <Link to={'/register'}>Register</Link></h3>
     </div>
   );
 };

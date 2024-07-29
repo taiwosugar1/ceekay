@@ -1,9 +1,9 @@
-// pages/FeedbackPage.js
-
 import React, { useEffect, useState } from 'react';
-import { getFeedbacks, submitFeedback } from '../api/api';
-import FeedbackForm from '../components/FeedbackForm';
-import FeedbackList from '../components/FeedbackList';
+import { getFeedbacks, submitFeedback } from '../../api/api';
+
+import FeedbackList from './FeedbackList';
+import FeedbackForm from './FeedbackForm';
+import './FeedbackPage.css'; // Import the CSS file
 
 const FeedbackPage = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -38,11 +38,11 @@ const FeedbackPage = () => {
     }
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className="loading">Loading...</p>;
+  if (error) return <p className="error">{error}</p>;
 
   return (
-    <div>
+    <div className="feedback-page">
       <h1>Customer Feedback</h1>
       <FeedbackForm onSubmit={handleFeedbackSubmit} />
       <FeedbackList feedbacks={feedbacks} />

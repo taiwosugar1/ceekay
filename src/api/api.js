@@ -2,24 +2,31 @@ import axios from 'axios';
 
 // Create an axios instance with a base URL
 const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000',
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:4006',
 });
 
 // Authentication API calls
-export const loginUser = async (credentials) => {
-  const response = await api.post('/api/auth/login', credentials);
-  return response.data;
-};
+// export const loginUser = async (credentials) => {
+//   const response = await api.post('/api/auth/login', credentials);
+//   return response.data;
+// };
 
 export const loginAdmin = async (credentials) => {
   const response = await api.post('/api/auth/admin/login', credentials);
   return response.data;
 };
 
+
 export const registerUser = async (data) => {
   const response = await api.post('/api/auth/register', data);
+  return response.data; // Ensure this returns token and user info
+};
+
+export const loginUser = async (credentials) => {
+  const response = await api.post('/api/auth/login', credentials);
   return response.data;
 };
+
 
 // Product API calls
 export const getProducts = async () => {
@@ -33,8 +40,16 @@ export const getProduct = async (id) => {
 };
 
 export const createProduct = async (productData) => {
-  const response = await api.post('/api/products', productData);
-  return response.data;
+  try {
+    const response = await axios.post('/api/products', productData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.message || 'Error adding product');
+  }
 };
 
 export const updateProduct = async (id, productData) => {

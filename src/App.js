@@ -1,21 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import AdminPage from './pages/AdminPage';
 import ProductPage from './pages/ProductPage';
-import FeedbackPage from './pages/FeedbackPage';
 import NotFoundPage from './pages/NotFoundPage';
-import UserLoginPage from './pages/LoginAndRegister/UserLoginPage';
-import AdminLoginPage from './pages/LoginAndRegister/AdminLoginPage';
-import RegistrationForm from './components/RegistrationForm';
-import PrivateRoute from './components/PrivateRoute';
-import { AuthProvider } from './context/AuthContext';
 import Navbar from "./components/navbar/Navbar";
+import PrivateRoute from './PrivateRoute';
+import { AuthProvider } from './context/AuthContext';
+import UserLoginPage from './pages/LoginAndRegister/UserLoginPage';
+import AdminLoginPage from './pages/adminLogin/AdminLoginPage';
+import RegistrationForm from './pages/LoginAndRegister/RegistrationForm';
+import AdminPage from './pages/adminPage/AdminPage';
+import FeedbackPage from './components/feedback/FeedbackPage';
+// import ErrorBoundary from './ErrorBoundry';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+        {/* <ErrorBoundary> */}
         <Router>
           <Navbar />
           <Routes>
@@ -23,6 +25,7 @@ function App() {
             <Route path="/login" element={<UserLoginPage />} />
             <Route path="/admin/login" element={<AdminLoginPage />} />
             <Route path="/register" element={<RegistrationForm />} />
+          
 
             {/* Private Routes */}
             <Route path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
@@ -34,6 +37,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Router>
+        {/* </ErrorBoundary> */}
       </AuthProvider>
     </div>
   );

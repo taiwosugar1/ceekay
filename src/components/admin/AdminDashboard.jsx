@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './AdminDashboard.css'; // Import the CSS file
 
 const AdminDashboard = () => {
   return (
-    <div>
+    <div className="admin-dashboard">
       <h1>Admin Dashboard</h1>
-      <Link to="/admin/add-product">Add Product</Link>
-      <Link to="/admin/manage-users">Manage Users</Link>
+      <Link to="/add-product">Add Product</Link>
+      <Link to="/manage-users">Manage Users</Link>
     </div>
   );
 };

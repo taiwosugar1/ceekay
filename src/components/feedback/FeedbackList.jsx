@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getFeedbacks } from '../api/api';
+import { getFeedbacks } from '../../api/api';
+import './FeedbackList.css'; // Import the CSS file
 
 const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -13,10 +14,10 @@ const FeedbackList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="feedback-list">
       <h1>Customer Feedback</h1>
       {feedbacks.map(feedback => (
-        <div key={feedback._id}>
+        <div className="feedback-item" key={feedback._id}>
           <p>{feedback.feedback}</p>
         </div>
       ))}

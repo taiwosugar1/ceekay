@@ -1,0 +1,77 @@
+
+.feedback-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .feedback-page h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .feedback-page .loading,
+  .feedback-page .error {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+  }
+  
+  .feedback-page .feedback-form,
+  .feedback-page .feedback-list {
+    margin-top: 2rem;
+  }
+  
+  .feedback-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .feedback-form button {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .feedback-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .feedback-list {
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+  }
+  
+  .feedback-list .feedback-item {
+    background-color: #f9f9f9;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedback-list .feedback-item p {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+  }

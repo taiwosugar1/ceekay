@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProduct } from '../api/api';
+import { getProduct } from '../../api/api';
+import './ProductDetail.css'; 
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -17,7 +18,7 @@ const ProductDetail = () => {
   if (!product) return <p>Loading...</p>;
 
   return (
-    <div>
+    <div className='product-detail'>
       <h1>{product.name}</h1>
       <p>{product.description}</p>
       <p>${product.price}</p>
